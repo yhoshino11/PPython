@@ -5,7 +5,7 @@ def main():
 
 
 def concat(a, b):
-    return a + b
+    return str(a) + str(b)
 
 
 if __name__ == '__main__':
