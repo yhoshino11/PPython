@@ -1,3 +1,4 @@
+# encoding: utf-8
 from datetime import datetime, time
 
 
@@ -8,8 +9,17 @@ def create_task(name, due_date, required_time):
                 finished=False)
 
 
-# create_task('learn python', datetime(2012, 4, 2), time(0, 25))
-# { 'due_date': datetime.datetime(2012, 4, 2, 0, 0),
-#   'finished': False,
-#   'required_time': datetime.time(0, 25),
-#   'name': 'learn python' }
+def format_task(task):
+    state = 'finished' if task['finished'] else 'unfinished'
+    format = "{state} {task[name]}: \
+            untill {task[due_date]:%Y-%m-%d} \
+            required time:{task[required_time]} minutes"
+
+    return format.format(task=task, state=state)
+
+
+# How to use
+
+# from task import *
+# task = create_task('learn python', datetime(2012, 4, 2), time(0, 25))
+# format_task(task)
