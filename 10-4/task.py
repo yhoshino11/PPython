@@ -22,6 +22,17 @@ def finish_task(task):
     task['finished'] = True
 
 
+import pickle
+
+
+def save_task(task, file):
+    pickle.dump(task, file)
+
+
+def load_tasks(file):
+    return pickle.load(file)
+
+
 # How to use
 
 # from task import *
@@ -29,3 +40,9 @@ def finish_task(task):
 # format_task(task)
 # finish_task(task)
 # format(task)
+
+# from io import BytesIO
+# out = BytesIO()
+# save_task(tasks, out)
+# out.seek(0)
+# load_tasks(out)
