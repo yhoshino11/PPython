@@ -3,3 +3,4 @@ def docstring_test():
     return True
 
 print(docstring_test.__doc__)
+help(docstring_test)
