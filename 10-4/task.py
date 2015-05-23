@@ -18,8 +18,14 @@ def format_task(task):
     return format.format(task=task, state=state)
 
 
+def finish_task(task):
+    task['finished'] = True
+
+
 # How to use
 
 # from task import *
 # task = create_task('learn python', datetime(2012, 4, 2), time(0, 25))
 # format_task(task)
+# finish_task(task)
+# format(task)
