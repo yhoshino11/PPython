@@ -33,6 +33,34 @@ def load_tasks(file):
     return pickle.load(file)
 
 
+import shelve
+
+db = shelve.open('data_store', 'c')
+
+
+def next_task_name(db):
+    id = db.get('next_id', 0)
+    db['next_id'] = id + 1
+    return "task:{0}".format(id)
+
+
+def add_task(db, task):
+    key = next_task_name(db)
+    db[key] = task
+
+
+def all_task(db):
+    for key in db:
+        if key.startswith('task:'):
+            yield key, db[key]
+
+
+def unfinished_tasks(db):
+    return ((key, task)
+            for key, task in all_task(db)
+            if not task['finished'])
+
+
 # How to use
 
 # from task import *
@@ -46,3 +74,9 @@ def load_tasks(file):
 # save_task(tasks, out)
 # out.seek(0)
 # load_tasks(out)
+
+# add_task(db, task)
+# all_task(db)
+# unfinished_tasks(db
+
+# next_task_name(db)
