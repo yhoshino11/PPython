@@ -1,3 +1,4 @@
+#!/Users/yuhoshino/.pyenv/shims/python3
 # encoding: utf-8
 from datetime import datetime, time
 
