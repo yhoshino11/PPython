@@ -146,8 +146,8 @@ if __name__ == '__main__':
 
 
 # CLI
-# ./task.py task_data add
-# ./task.py task_data list
-# ./task.py task_data finish task:0
-# ./task.py task_data list # hides finished tasks
-# ./task.py task_data list -a # shows all tasks including finished tasks
+# $ ./task.py task_data add
+# $ ./task.py task_data list
+# $ ./task.py task_data finish task:0
+# $ ./task.py task_data list # hides finished tasks
+# $ ./task.py task_data list -a # shows all tasks including finished tasks
